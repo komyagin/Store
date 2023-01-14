@@ -1,0 +1,8 @@
+/.idea/
+/.mvn/
+/target/
+/user-photos/
+mvnw
+mvnw.cmd
+*.jar
+*.log
