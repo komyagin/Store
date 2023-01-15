@@ -38,14 +38,19 @@ public class WebSecurityConfig {
                 .requestMatchers("/images/**", "/js/**", "/webjars/**")
                 .permitAll().and().authorizeHttpRequests().requestMatchers("/**")
                 .authenticated().and()
+                .rememberMe().key("AbcDefgHijKlmnOpqrs_1234567890")
+                .tokenValiditySeconds(7 * 24 * 60 * 60)
                 .userDetailsService(userDetailsService())
+                .and()
                 .authenticationProvider(authenticationProvider())
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
                 .permitAll()
                 .and()
-                .logout().permitAll();
+                .logout()
+                .deleteCookies("JSESSIONID", "remember-me")
+                .permitAll();
         return http.build();
     }
 }
