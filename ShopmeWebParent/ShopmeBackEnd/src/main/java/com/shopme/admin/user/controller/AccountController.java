@@ -1,7 +1,8 @@
-package com.shopme.admin.user;
+package com.shopme.admin.user.controller;
 
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.security.ShopmeUserDetails;
+import com.shopme.admin.user.UserService;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class AccountController {
         model.addAttribute("user", user);
         model.addAttribute("listRoles", roleList);
         model.addAttribute("pageTitle", "Account info");
-        return "account_form";
+        return "users/account_form";
     }
 
     @PostMapping("/account/update")
